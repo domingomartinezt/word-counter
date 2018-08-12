@@ -1,3 +1,8 @@
+<!-- Code challenge for Voxy
+	 I use simple html in combination woth javascript and jQuery library
+	 that is provided remotelly.
+	 Author: Domingo Martinez
+ -->
 <html>
 	<head>
 		<title>Word Counter</title>
@@ -5,16 +10,16 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
 		$(document).ready(function(){
-		    $("#button").click(function(){
-		    	if($("#text").val().trim().length == 0){
+		    $("#button").click(function(){										// capture the action-on click button 
+		    	if($("#text").val().trim().length == 0){						// if is empty show message error
 					$("#mesageError").show();
 					$("#mesageOk").hide();
-		    	}else{
+		    	}else{															// if not calculete the number of words
 		    		var cont = $("#text").val().trim()
-		    							.replace(/(\r\n|\n|\r)/g," ")
-		    							.replace(/\s\s+/g, ' ')
+		    							.replace(/(\r\n|\n|\r)/g," ")			// using regular expressions to replace newlines with spaces
+		    							.replace(/\s\s+/g, ' ')					// and remove aditional spaces
 		    							.split(" ").length;
-		    		$("#mesageOk").text("Number of words in text : " + cont);
+		    		$("#mesageOk").text("Number of words in text : " + cont);	// insert and show the message
 		    		$("#mesageError").hide();
 		    		$("#mesageOk").show();
 		    	}
