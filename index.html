@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title>Word Counter</title>
+		<h1>Counting Words App</h1>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+		$(document).ready(function(){
+		    $("#button").click(function(){
+		    	if($("#text").val().trim().length == 0){
+					$("#mesageError").show();
+					$("#mesageOk").hide();
+		    	}else{
+		    		var cont = $("#text").val().trim()
+		    							.replace(/(\r\n|\n|\r)/g," ")
+		    							.replace(/\s\s+/g, ' ')
+		    							.split(" ").length;
+		    		$("#mesageOk").text("Number of words in text : " + cont);
+		    		$("#mesageError").hide();
+		    		$("#mesageOk").show();
+		    	}
+		    });
+		});
+		</script>		
+	</head>
+	<body>
+		<div>
+			<textarea id='text' rows="8" cols="40"></textarea>
+		</div>
+		<div>
+			<input id='button' type="submit" name="Submit">
+			<span hidden id='mesageOk'></span>
+			<span hidden id='mesageError'> Is required an input text.</span>
+		</div>
+	</body>
+</html>
